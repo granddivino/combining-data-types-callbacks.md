@@ -2,10 +2,10 @@
 
 // 1. Create an object, called `crayonBox`, that has a property that is an array. The array should have the names of some crayons. Log one of the elements of that array.
 const crayonBox = {
-    ['blue', 'red', 'green', 'yellow']
+    Colors: ['blue', 'red', 'green', 'yellow']
 }
 
-console.log(crayonBox[1]) //red
+console.log(crayonBox.Colors[1]) //red
 // 2. Create an object `bottle` that has a property that is an object: `cap`. `cap` can have properties like material: 'metal' or 'plastic', color: `blue` or `white` etc. Log one of the properties of that inner object.
 const bottle = {
     cap: {
@@ -36,9 +36,29 @@ console.log(apartmentBuilding[0][0]) //Keisha
 // ## Combine objects, arrays, and functions more than one level deep
 
 // 1. Create a function `knit` that returns an object that has the following kinds of properties `item`: `scarf`, `size` : `6ft` etc.  Log a value of that object (hint: call the function and then call a property on the return value).
-// 2. Create a function `crayonSelector` that returns an object that has an array (you can reuse your `crayonBox` object).  Log one of the elements of that array.
-// 3. Create a function `powerButton` that returns a function called `options` - `options` should console.log a simple message like `select a song`.  Call that inner function
+const knit = () => {
+    return {
+      Item: 'Scarf',
+      Size: '6ft'
+    }
+}
 
+console.log(knit().Item) //Scarf
+// 2. Create a function `crayonSelector` that returns an object that has an array (you can reuse your `crayonBox` object).  Log one of the elements of that array.
+const crayonSelector = () => {
+    return crayonBox;
+}
+
+console.log(crayonSelector().Colors[2]) //Green
+// 3. Create a function `powerButton` that returns a function called `options` - `options` should console.log a simple message like `select a song`.  Call that inner function
+const powerButton = () => {
+    const options = () => {
+       console.log('Pick a song')
+   }
+ return options()
+}
+
+console.log(powerButton())
 //Commit here -m "Combine objects, arrays, and functions more than one level deep"
 
 
