@@ -10,182 +10,104 @@ const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0]
 
 const panagram = ['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']
 // The first question is for the numbers array. The second question is for the words array.
-
 // You don't have to write an answer to the thought questions.
 
 // Every
 
 // Determine if every number is greater than or equal to 0
+const biggerThanOne = (value) => value >= 0
+
+console.log(nums.every(biggerThanOne)) //Returns True, so yes
+
 // determine if every word shorter than 8 characters
+const shorterThanEight = (word) => word.length < 8
+
+console.log(panagram.every(shorterThanEight)) //Returns True, so yes
 
 // Filter
 
 // filter the array for numbers less than 4
+const lessThanFour = (number) => number < 4
+
+console.log(nums.filter(lessThanFour))
+
 // filter words that have an even length
+
+const evenLength = (word) => {
+    if (word.length % 2 === 0) {
+        return word
+    }
+}
+
+console.log(panagram.filter(evenLength))
 
 // Find
 
 // Find the first value divisible by 5
+let divByFive = nums.find((found) => {
+    if (found % 5 === 0){
+      return found
+    }
+  })
+  
+  console.log(divByFive);
 // find the first word that is longer than 5 characters
+let longerThanFive = panagram.find((found) => {
+    if (found.length > 5){
+      return found
+    }
+  })
+  
+  console.log(longerThanFive); //Returns undefined because no words are longer than 5 characters
 
 // Find Index
 
 // find the index of the first number that is divisible by 3
+let indexOfNum = nums.findIndex((num) => {
+    if (num % 3 === 0) {
+      return num;
+    }
+  })
+
+console.log(indexOfNum) //Returns index 2 which is 3
+
 // find the index of the first word that is less than 2 characters long
+let indexOfWord = panagram.findIndex((word) => {
+    if(word.length < 2) {
+      return word;
+    }
+  })
+  
+  console.log(indexOfWord); //Returns -1. None of the words in the array are less than 2 
 
 // For Each
 
 // console.log each value of the nums array multiplied by 3
+let multiplyBy3 = nums.forEach((number)=> {
+    console.log(number * 3);
+  })
+
 // console.log each word with an exclamation point at the end of it
-
-// Thought Questions
-
-// What happened to the original array?
-// Can you store the values from a forEach method in a new array?
+panagram.forEach((word)=> {
+    console.log(word + '!');
+  })
 
 // Map
 
 // make a new array of each number multiplied by 100
+const newNums = nums.map(number => number * 100)
+console.log(newNums)
+
 // make a new array of all the words in all uppercase
+const exclaim = panagram.map(word => word.toUpperCase());
+console.log(exclaim)
 
-// Thought Questions
-
-// What happened to the original array?
-// Can you store the values from a map method in a new array?
 
 // Some
 
 // Find out if some numbers are divisible by 7
+nums.some(num => num % 7 === 0) //Returns true since 7 is the only number divisible by 7
+
 // Find out if some words have the letter a in them
+panagram.some(word => word.includes('a')) //Returns true
 
-
-// Hungry for More
-
-// Reduce
-// Add all the numbers in the array together using the reduce method
-// concatenate all the words using reduce
-
-// Thought Questions
-
-// What happened to the original array?
-// Sort
-// Try to sort without any arguments, do you get what you'd expect with the numbers array?
-// Try to sort without any arguments, do you get what you'd expect with the words array?
-// Sort the numbers in ascending order
-// Sort the numbers in descending order
-// Sort the words in ascending order
-// Sort the words in descending order
-
-// Thought Questions
-
-// What happened to the original array?
-// Array Methods Challenge Problems
-// isPanagram
-// Using the following array - test whether each letter a-z (case insensitive) is used at least once
-
-// const panagram = ['The', 'quick','brown','fox', 'jumps', 'over', 'the', 'lazy', 'dog']
-// Working with data
-// filter for products with a price that is less than 10, using the array below:
-// sort alphabetically by product name
-// const products = [
-//       {
-//         "name": "allen wrench",
-//         "price": 2.99,
-//         "description": "handy tool"
-//       },
-//       {
-//         "name": "cornucopia",
-//         "price": 5.99,
-//         "description": "festive holiday decoration"
-//       },
-//       {
-//         "name": "banana",
-//         "price": 0.99,
-//         "description": "full of potassium"
-//       },
-//       {
-//         "name": "guillotine (cigar)",
-//         "price": 10.59,
-//         "description": "behead your stub"
-//       },
-//       {
-//         "name": "jack-o-lantern",
-//         "price": 3.99,
-//         "description": "spooky seasonal fun"
-//       },
-//       {
-//         "name": "doggie treat (box)",
-//         "price": 5.99,
-//         "description": "fido loves 'em"
-//       },
-//       {
-//         "name": "egg separator",
-//         "price": 3.99,
-//         "description": "it separates yolks from whites"
-//       },
-//       {
-//         "name": "LED lightbulb",
-//         "price": 6.55,
-//         "description": "It's super-efficient!"
-//       },
-//       {
-//         "name": "owl pellets",
-//         "price": 3.99,
-//         "description": "Don't ask what they used to be."
-//       },
-//       {
-//         "name": "flag",
-//         "price": 5.99,
-//         "description": "catches the breeze"
-//       },
-//       {
-//         "name": "hair brush",
-//         "price": 6.99,
-//         "description": "fine boar bristles"
-//       },
-//       {
-//         "name": "iridium (one gram)",
-//         "price": 19.36,
-//         "description": "corrosion-resistant metal"
-//       },
-//       {
-//         "name": "quark",
-//         "price": 0.01,
-//         "description": "Very small"
-//       },
-//       {
-//         "name": "turtleneck",
-//         "price": 19.99,
-//         "description": "available in black and slightly-darker black"
-//       },
-//       {
-//         "name": "kaleidoscope",
-//         "price": 8.25,
-//         "description": "tube with moving plastic pieces inside"
-//       },
-//       {
-//         "name": "mitt (leather)",
-//         "price": 15,
-//         "description": "regulation sized"
-//       },
-//       {
-//         "name": "nothing",
-//         "price": 10,
-//         "description": "Hey, if you pay us, we won't ask any questions."
-//       },
-//       {
-//         "name": "violin",
-//         "price": 2000,
-//         "description": "Talk about a JS fiddle..."
-//       },
-//       {
-//         "name": "yoyo",
-//         "price": 1,
-//         "description": "We had to pull some strings to get this one in."
-//       },
-//       {
-//         "name": "pincushion",
-//         "price": 1.99,
-//         "description": "You'll get 'stuck' on it"
-//       },
-//     ]
